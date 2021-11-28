@@ -1,0 +1,5 @@
+{
+    "USER": "root",
+    "PASSWORD": "your_password",
+    "DB": "covid"
+}
