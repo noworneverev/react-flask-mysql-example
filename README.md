@@ -45,3 +45,8 @@ npm install
 ```
 npm start
 ```
+
+## Framework
+
+- [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/)
+- [React Admin](https://marmelab.com/react-admin/)

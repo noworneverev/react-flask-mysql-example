@@ -113,6 +113,30 @@ def delete_user(user_id):
     finally:
         cur.close()
         conn.close()
+@app.route('/users', methods=['DELETE'])
+def delete_users():
+    try:
+        conn = mysql.connect()
+        cur = conn.cursor(pymysql.cursors.DictCursor)
+
+        filter_str = request.args.get('filter')  # filter or range or sort
+        if filter_str:
+            filter_dict = json.loads(filter_str)
+        
+        if request.method == 'DELETE':
+            for id in filter_dict["id"]:
+                cur.execute(f"DELETE FROM users WHERE id = '{id}';")
+                conn.commit()
+            rows = cur.fetchall()
+            response = jsonify(rows)
+            response.status_code = 200
+            return response
+
+    except Exception as e:
+        print(e)
+    finally:
+        cur.close()
+        conn.close()
 
 
 # @app.route('/users', methods=['GET', 'POST'])
