@@ -2,7 +2,7 @@
 
 ## Backend
 
-### 1. Install Flask dependencies
+### 1. Install Backend dependencies
 
 ```
 pip install -r requirements.txt
